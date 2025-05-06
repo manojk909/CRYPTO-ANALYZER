@@ -312,7 +312,7 @@ function updateStockInfo(priceData, analysis) {
         const previousData = priceData.data.length > 1 ? priceData.data[priceData.data.length - 2] : latestData;
         
         // Update price
-        document.getElementById('stock-price').textContent = formatCurrency(latestData.Close, '$');
+        document.getElementById('stock-price').textContent = formatCurrency(latestData.Close, '₹');
         
         // Calculate and update daily change
         const priceChange = ((latestData.Close - previousData.Close) / previousData.Close) * 100;
@@ -381,11 +381,11 @@ function updateStockInfo(priceData, analysis) {
             const ma30 = analysis.moving_averages.ma_30;
             
             if (ma7) {
-                document.getElementById('ma-7').textContent = formatCurrency(ma7, '$');
+                document.getElementById('ma-7').textContent = formatCurrency(ma7, '₹');
             }
             
             if (ma30) {
-                document.getElementById('ma-30').textContent = formatCurrency(ma30, '$');
+                document.getElementById('ma-30').textContent = formatCurrency(ma30, '₹');
             }
             
             // Update price vs MA description
@@ -489,7 +489,7 @@ function updatePriceChart(priceData) {
                         beginAtZero: false,
                         ticks: {
                             callback: function(value) {
-                                return '$' + value.toLocaleString();
+                                return '₹' + value.toLocaleString();
                             }
                         }
                     }
@@ -498,7 +498,7 @@ function updatePriceChart(priceData) {
                     tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return '$' + context.parsed.y.toLocaleString();
+                                return '₹' + context.parsed.y.toLocaleString();
                             }
                         }
                     }
@@ -990,7 +990,7 @@ function getSentimentBadgeClass(sentiment) {
 }
 
 // Format currency values
-function formatCurrency(value, symbol = '$') {
+function formatCurrency(value, symbol = '₹') {
     if (typeof value !== 'number') {
         return `${symbol}0.00`;
     }
