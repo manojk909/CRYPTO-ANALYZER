@@ -1,13 +1,13 @@
 services:
   - type: web
-    name: air-quality-insight
+    name: crypto-pulse
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    plan: free
-    runtime: python
-    region: oregon
-
-    envVars:
-      - key: FLASK_ENV
-        value: production
+    buildCommand: |
+      export PATH="/opt/render/project/poetry/bin:$PATH"
+      pip install --upgrade pip
+      cd CryptoPulse
+      poetry install
+    startCommand: |
+      export PATH="/opt/render/project/poetry/bin:$PATH"
+      cd CryptoPulse
+      poetry run python main.py
