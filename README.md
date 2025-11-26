@@ -41,7 +41,7 @@ CRYPTO-ANALYZER/
    ```bash
    git clone https://github.com/manojk909/CRYPTO-ANALYZER.git
    cd CRYPTO-ANALYZER
-````
+   ```
 
 2. **Create a virtual environment:**
 
